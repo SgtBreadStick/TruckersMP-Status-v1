@@ -34,6 +34,12 @@
             } else {
                 $speedlimiter = '<font color="red">Disabled</font>';
             }
+            
+            if($serv['collisions']){
+                $collisions = '<font color="green">Enabled</font>';
+            } else {
+                $collisions = '<font color="red">Disabled</font>';
+            }
 
             if($serv['policecarsforplayers']){
                 $police = '<hr><i class="fa fa-car fa-3x" aria-hidden="true"></i><strong><font color="blue">Enabled</font></strong><br>Police For Players';
@@ -52,6 +58,7 @@
                         <i  class="fa fa-users fa-3x" aria-hidden="true"></i><strong><big>'. $serv['players'] .'</strong></big><small> / '. $serv['maxplayers'] .'</strong></small><br>Players<hr>
                         <i class="fa fa-user-o fa-3x" aria-hidden="true"></i><strong>'. $serv['queue'] .'</strong><br> Queue<hr>
                         <i class="fa fa-server fa-3x" aria-hidden="true"></i><strong>'. $status .'</strong><br>Server Status<hr>
+                        <i class="fa fa-rocket fa-3x" aria-hidden="true"></i><strong>'. $collisions .'</strong><br>Collisions<hr>
                         <i class="fa fa-tachometer fa-3x" aria-hidden="true"></i><strong>'. $speedlimiter .'</strong><br>Speedlimiter
                         '. $police .'
                       </div>
