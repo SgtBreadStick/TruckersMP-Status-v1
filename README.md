@@ -2,9 +2,9 @@
 
 This TruckersMP Status Project can be used in many different ways. It includes
 * Bootstrap 3
-* TruckersMP API
+* TruckersMP API (Cached)
 * PHP
-* Font Awesome
+* Font Awesome 4.7.1
 * Jquery
 
 ## Getting Started
@@ -28,6 +28,15 @@ Make sure you did what was said in Getting Started.
 ### Version 1.2
 
 This Project is currently on Version 1.2
+
+Changelog:
+* Now shows speedlimiter in more detail with the actual limiter speed.
+* New and better style
+* API is now cached so you no longer need to worry about that.
+* Added collisions (Thanks To Lasse)
+* Page now has fluid width and is now full width
+* Added version number to bottom of the page
+* The "api.sgtbreadstick.tk" is now the status URL for caching.
 
 ## License
 
