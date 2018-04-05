@@ -10,18 +10,15 @@
         <link href="css/jquery.dataTables.min.css" rel="stylesheet">
     </head>
 <body>
-    <div class="container">
+    <br>
+    <div class="container-fluid">
         <strong>
-            <center>
-                <img class="fit" src="img/truckersmp.png" width="600" height="auto">
-            </center>
             <h1>TruckersMP Status</h1>
         </strong><hr>
- 
+        <div class="row">
 <?php
-    $servers = json_decode(file_get_contents("https://api.truckersmp.com/v2/servers"), true);
-?>
-<?php
+    $servers = json_decode(file_get_contents("https://api.sgtbreadstick.tk/"), true);
+
         foreach($servers['response'] as $serv){
             if($serv['online']){
                 $status = '<strong><font color="green">Online</font></strong>';
@@ -30,9 +27,9 @@
             }
             
             if($serv['speedlimiter']){
-                $speedlimiter = '<font color="green">Enabled</font>';
+                $speedlimiter = '<font color="green">110KM/H</font>';
             } else {
-                $speedlimiter = '<font color="red">Disabled</font>';
+                $speedlimiter = '<font color="red">150KM/H</font>';
             }
             
             if($serv['collisions']){
@@ -42,34 +39,36 @@
             }
 
             if($serv['policecarsforplayers']){
-                $police = '<hr><i class="fa fa-car fa-3x" aria-hidden="true"></i><strong><font color="blue">Enabled</font></strong><br>Police For Players';
+                $police = '<hr><i class="fa fa-car fa-3x" aria-hidden="true"></i><p class="text">Police For Players: <strong><font color="blue">Enabled</font></strong></p>';
             } else {
                 $police = '';
             }
             
             
-            echo '<div>
-                    <div class="col-md-4">
+            echo '
+                    <div class="col-lg-4">
                     <div class="panel panel-default">
                       <div class="panel-heading">
                         <h3 class="panel-title">'. $serv['name'] . ' - ' . $serv['game'] .'</h3>
                       </div>
-                      <div class="panel-body" style="box-sizing: border-box; border: 15px solid #f2f2f2">
-                        <i  class="fa fa-users fa-3x" aria-hidden="true"></i><strong><big>'. $serv['players'] .'</strong></big><small> / '. $serv['maxplayers'] .'</strong></small><br>Players<hr>
-                        <i class="fa fa-user-o fa-3x" aria-hidden="true"></i><strong>'. $serv['queue'] .'</strong><br> Queue<hr>
-                        <i class="fa fa-server fa-3x" aria-hidden="true"></i><strong>'. $status .'</strong><br>Server Status<hr>
-                        <i class="fa fa-rocket fa-3x" aria-hidden="true"></i><strong>'. $collisions .'</strong><br>Collisions<hr>
-                        <i class="fa fa-tachometer fa-3x" aria-hidden="true"></i><strong>'. $speedlimiter .'</strong><br>Speedlimiter
+                      <div class="panel-body" style="box-sizing: border-box; border: 10px solid #f2f2f2;">
+                        <i class="fa fa-users fa-3x fa-fw" aria-hidden="true"></i><p class="text">Players: <strong>'. $serv['players'] .'</strong></big><small> / '. $serv['maxplayers'] .'</strong></small></p><hr>
+                        <i class="fa fa-user-o fa-3x fa-fw" aria-hidden="true"></i><p class="text">Queue: <strong>'. $serv['queue'] .'</strong></p><hr>
+                        <i class="fa fa-server fa-3x fa-fw" aria-hidden="true"></i><p class="text">Server Status: <strong>'. $status .'</strong></p><hr>
+                        <i class="fa fa-times fa-3x fa-fw" aria-hidden="true"></i><p class="text">Collisions: <strong>'. $collisions .'</strong></p><hr>
+                        <i class="fa fa-tachometer fa-3x fa-fw" aria-hidden="true"></i><p class="text">Speedlimiter: <strong>'. $speedlimiter .'</strong></p>
                         '. $police .'
                       </div>
                     </div>
                     </div>
-                </div>';
+                ';
         } 
     ?>
+        </div>
     </div>
     <!--Author Section-->
-    <center><a href="https://github.com/SgtBreadStick" class="w" target="_blank">Developed By SgtBreadStick</a></center>
+    <br><center><a href="https://github.com/SgtBreadStick" class="w" target="_blank">Developed By SgtBreadStick</a></center>
+    <center><p style="font-size: 0.75em;">Ver v1.2</p></center>
     <br><br>
 
     <script src="js/jquery.min.js"></script>
